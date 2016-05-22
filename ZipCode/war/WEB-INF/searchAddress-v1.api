@@ -1,0 +1,132 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://magellantest-1317.appspot.com/_ah/api",
+  "name" : "searchAddress",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://magellantest-1317.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "toku.co.uk",
+  "ownerName" : "toku.co.uk",
+  "methods" : {
+    "searchAddress.getAddress" : {
+      "path" : "addressresults/{searchAddress}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "uk.co.toku.endpoints.SearchAddressEndpoints.getAddress",
+      "request" : {
+        "parameters" : {
+          "searchAddress" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "AddressResults" : {
+        "id" : "AddressResults",
+        "type" : "object",
+        "properties" : {
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "ZipcodeExtend"
+            }
+          }
+        }
+      },
+      "ZipcodeExtend" : {
+        "id" : "ZipcodeExtend",
+        "type" : "object",
+        "properties" : {
+          "jiscode" : {
+            "type" : "string"
+          },
+          "zipcode5" : {
+            "type" : "string"
+          },
+          "zipcode7" : {
+            "type" : "string"
+          },
+          "prefectureKana" : {
+            "type" : "string"
+          },
+          "cityKana" : {
+            "type" : "string"
+          },
+          "townKana" : {
+            "type" : "string"
+          },
+          "fullAddressKana" : {
+            "type" : "string"
+          },
+          "prefectureKanji" : {
+            "type" : "string"
+          },
+          "cityKanji" : {
+            "type" : "string"
+          },
+          "townKanji" : {
+            "type" : "string"
+          },
+          "fullAddressKanji" : {
+            "type" : "string"
+          },
+          "option1" : {
+            "type" : "string"
+          },
+          "option2" : {
+            "type" : "string"
+          },
+          "option3" : {
+            "type" : "string"
+          },
+          "option4" : {
+            "type" : "string"
+          },
+          "option5" : {
+            "type" : "string"
+          },
+          "option6" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "uk.co.toku.endpoints.SearchAddressEndpoints.getAddress" : {
+        "response" : {
+          "$ref" : "AddressResults"
+        }
+      }
+    }
+  }
+}
