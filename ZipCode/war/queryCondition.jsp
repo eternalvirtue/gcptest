@@ -20,7 +20,7 @@
 			<label for="searchAddress" class="control-label col-sm-2">住所</label>
 			<div class="col-sm-3">
 				<input class="form-control" id="searchAddress" name="searchAddress"
-					placeholder="例：東京都墨田区隅田" type="text">
+					placeholder="例：東京都墨田区墨田" type="text">
 			</div>
 		</fieldset>
 		<fieldset class="form-group">
